@@ -11,7 +11,7 @@ const { restrictToLoggedInUserOnly } = require('./middleware/auth')
 const PORT = process.env.PORT || 3000
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://short-url-omega-eight.vercel.app/",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
