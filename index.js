@@ -11,13 +11,13 @@ const { restrictToLoggedInUserOnly } = require('./middleware/auth')
 const PORT = process.env.PORT || 3000
 
 app.use(cors({
-  origin: "https://short-url-omega-eight.vercel.app/",
+  origin: "https://short-url-omega-eight.vercel.app",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header("Access-Control-Allow-Origin", "https://short-url-omega-eight.vercel.app");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
