@@ -10,7 +10,6 @@ async function handleGenerateShortId(req, res){
             shortId: shortID,
             redirectUrl: url,
             visitHistory: [],
-            createdBy:req.user._id
         })
         return res.status(201).json({ message: 'url created successfully', shortID })
     } catch (error) {

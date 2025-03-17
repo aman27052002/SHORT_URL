@@ -5,23 +5,18 @@ const URL = require("./models/url")
 const app = express()
 const { ConnectToDB } = require('./connect')
 const router = require('./routes/url')
-const userRouter = require('./routes/user')
-const cookieParser = require('cookie-parser')
-const { restrictToLoggedInUserOnly } = require('./middleware/auth')
 const PORT = process.env.PORT || 3000
 
 app.use(cors({
-  origin: "https://short-url-sepia.vercel.app",
+  origin: "http://localhost:5173",
   credentials: true,
 }));
 
 
 ConnectToDB()
-app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use('/url',restrictToLoggedInUserOnly,router)
-app.use('/user',userRouter)
+app.use('/url',router)
 
 app.get('/', (req, res) => {
   return res.send("hello from server")
